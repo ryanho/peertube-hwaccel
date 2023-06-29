@@ -1,4 +1,5 @@
 
+
 # peertube-hwaccel
 This is based on **[docker-ffmpeg](https://github.com/linuxserver/docker-ffmpeg)**, thanks for their hard work. The following is based on the assumption that a PeerTube service has already been set up.
 
@@ -56,12 +57,16 @@ Transcoding profiles
             "-hwaccel nvdec"
         ],
           "outputOptions": [
-            "-c:v h264_nvenc"
+            "-c:v h264_nvenc",
+            "-b:v 4M", 
+            "-maxrate:v 5M", 
+            "-bufsize:v 8M"
           ]
         }
       ],
       "live": []
     }
+
 
 Encoders priorities
 
