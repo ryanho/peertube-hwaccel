@@ -39,58 +39,8 @@ Restart service
     docker compose up -d
 
 
-In PeerTube admin interface install "transcoding-profile-debug" plugin. Change its setting as following
+In PeerTube admin interface install "hardware-transcode-nvenc" plugin. You can change quality and bitrate in the plugin setting.
 
-Transcoding profiles
-
-    {
-      "vod": [
-        {
-          "encoderName": "aac",
-          "profileName": "test",
-          "outputOptions": []
-        },
-        {
-          "encoderName": "h264_nvenc",
-          "profileName": "test",
-         "inputOptions": [
-            "-hwaccel nvdec"
-        ],
-          "outputOptions": [
-            "-c:v h264_nvenc",
-            "-b:v 4M", 
-            "-maxrate:v 5M", 
-            "-bufsize:v 8M"
-          ]
-        }
-      ],
-      "live": []
-    }
-
-
-Encoders priorities
-
-    {
-      "vod": [
-        {
-          "encoderName": "aac",
-          "streamType": "audio",
-          "priority": 1000
-        },
-    
-       {
-          "encoderName": "h264_nvenc",
-          "streamType": "video",
-          "priority": 1000
-        }
-      ],
-    
-      "live": [ ]
-    
-    }
-
-**Above profile just works, does not optimize.**
-
-Then in Setting/VOD transcode, select "test" in transcode profile drop down list.
+Then in Setting/VOD transcode, select "nvenc" in transcode profile drop down list.
 
 That's it.
