@@ -1,4 +1,4 @@
-
+2025/03/19 - Hardware transcoding is not recommended because of the poor quality. Change this repository into an archive.
 
 # peertube-hwaccel
 This is based on **[docker-ffmpeg](https://github.com/linuxserver/docker-ffmpeg)**, thanks for their hard work. The following is based on the assumption that a PeerTube service has already been set up.
